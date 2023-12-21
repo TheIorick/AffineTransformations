@@ -6,12 +6,15 @@ public interface InterfaceRotation {
     /**
      *
      * @param angle - угол
-     * @param direction - направление поворота
+     * @param direction - направление поворота, true - по часовой, false - против
      *                  Устанавливаем матрицу поворота вокруг одной оси
      */
-    void setRotationAroundX(float angle, boolean direction);
-    void setRotationAroundY(float angle, boolean direction);
-    void setRotationAroundZ(float angle, boolean direction);
+
+    void setRotationAroundX(double angle, boolean direction);
+
+    void setRotationAroundY(double angle, boolean direction);
+
+    void setRotationAroundZ(double angle, boolean direction);
 
     /**
      * Совершаем поворот
