@@ -1,24 +1,31 @@
-package org.example.scale;
+package org.example.affineTransform.scale;
 
 import org.example.math.matrix.Matrix4f;
 import org.example.math.vector.Vector3f;
 import org.example.math.vector.Vector4f;
 
-public class Scale implements InterfaceScale{
-    private static Matrix4f scale = new Matrix4f();
+public class Scale implements InterfaceScale {
+    public final Matrix4f scale = new Matrix4f();
 
+    public Scale(float scaleX, float scaleY, float scaleZ) {
+        setScaleMatrix(scaleX, scaleY, scaleZ);
+    }
+
+    public Scale(float scaleS) {
+        setScaleMatrix(scaleS);
+    }
+
+    //todo можно сделать чтобы мы задавали коэф-ты для того чтобы сжать или отразить?
     @Override
-    public Scale createMatrixScale(float scaleX, float scaleY, float scaleZ) {
+    public void setScaleMatrix(float scaleX, float scaleY, float scaleZ) {
         float[] values = {scaleX, 0.0f, 0.0f, 0.0f, 0.0f, scaleY, 0.0f, 0.0f, 0.0f, 0.0f, scaleZ, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f};
         scale.set(values);
-        return this;
     }
 
     @Override
-    public Scale createMatrixScale(float scaleS) {
+    public void setScaleMatrix(float scaleS) {
         float[] values = {scaleS, 0.0f, 0.0f, 0.0f, 0.0f, scaleS, 0.0f, 0.0f, 0.0f, 0.0f, scaleS, 0.0f, 0.0f, 0.0f, 0.0f, 1.0f};
         scale.set(values);
-        return this;
     }
 
     @Override
