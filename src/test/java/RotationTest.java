@@ -1,4 +1,5 @@
 import org.example.affineTransform.rotation.Rotation;
+import org.example.math.matrix.Matrix4f;
 import org.example.math.vector.Vector3f;
 import org.junit.jupiter.api.Test;
 
@@ -53,6 +54,41 @@ public class RotationTest {
         Rotation rotationZ = new Rotation();
         rotationZ.setRotationAroundZ(60, false);
         Vector3f vExpected = rotationZ.doRotation(new Vector3f(1f, 1f, 1f));
+        assertEquals(vExpected, vActual);
+    }
+
+    @Test
+    void doRotationAroundXY(){
+        Vector3f vActual = new Vector3f(0f, (float) (Math.sqrt(2)/2 - 1), (float) (Math.sqrt(2)/2 + 1));
+
+        Rotation rotationY = new Rotation();
+        rotationY.setRotationAroundY(45, true);
+
+        Rotation rotationX = new Rotation();
+        rotationX.setRotationAroundX(45, true);
+
+        Rotation rotationXY = Rotation.setRotation(rotationX, rotationY);
+        Vector3f vExpected = rotationXY.doRotation(1f, 1f, 1f);
+
+        assertEquals(vExpected, vActual);
+    }
+    @Test
+    void doRotationAroundXYZ(){
+        Vector3f vActual = new Vector3f(0f, (float) (Math.sqrt(2)/2 - 1), (float) (Math.sqrt(2)/2 + 1));
+
+        Rotation rotationY = new Rotation();
+        rotationY.setRotationAroundY(45, true);
+
+        Rotation rotationX = new Rotation();
+        rotationX.setRotationAroundX(45, true);
+
+        Rotation rotationZ = new Rotation();
+        rotationX.setRotationAroundZ(45, true);
+
+        Rotation rotationXY = Rotation.setRotation(rotationX, rotationY);
+        Rotation rotationXYZ = Rotation.setRotation(rotationZ, rotationXY);
+        Vector3f vExpected = rotationXYZ.doRotation(1f, 1f, 1f);
+
         assertEquals(vExpected, vActual);
     }
 }

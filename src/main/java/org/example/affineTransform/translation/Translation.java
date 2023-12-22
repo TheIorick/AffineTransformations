@@ -5,7 +5,7 @@ import org.example.math.vector.Vector3f;
 import org.example.math.vector.Vector4f;
 
 public class Translation {
-    public final Matrix4f translation = new Matrix4f();
+    public final Matrix4f tr = new Matrix4f();
     public static final int M11 = 0;
     public static final int M12 = 4;
     public static final int M13 = 8;
@@ -34,18 +34,18 @@ public class Translation {
         values[M21] = 0f; values[M22] = 1f; values[M23] = 0; values[M24] = tY;
         values[M31] = 0f; values[M32] = 0; values[M33] = 1f; values[M34] = tZ;
         values[M41] = 0f; values[M42] = 0f; values[M43] = 0f; values[M44] = 1f;
-        translation.set(values);
+        tr.set(values);
     }
 
     public Vector3f doTranslation(float x, float y, float z) {
         Vector4f v4 = new Vector4f(x, y, z, 1.0f);
-        Vector4f afterTranslation = translation.mul(v4);
+        Vector4f afterTranslation = tr.mul(v4);
         return new Vector3f(afterTranslation);
     }
 
     public Vector3f doTranslation(Vector3f v) {
         Vector4f v4 = new Vector4f(v, 1.0f);
-        Vector4f afterTranslation = translation.mul(v4);
+        Vector4f afterTranslation = tr.mul(v4);
         return new Vector3f(afterTranslation);
     }
 }
