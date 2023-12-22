@@ -25,66 +25,66 @@ public class Rotation implements InterfaceRotation{
     public static final int LEN = 16;
     @Override
     public void setRotationAroundX(double angle, boolean direction) {
-        double angleRad =  (angle * 180 / Math.PI);
+        double angleRad =  Math.toRadians(angle);
         float cos = (float) Math.cos(angleRad);
         float sin = (float) Math.sin(angleRad);
         if (direction){
             float[] values = new float[LEN];
-            values[M11] = 1f; values[M21] = 0f; values[M31] = 0f; values[M41] = 0f;
-            values[M12] = 0f; values[M22] = cos; values[M32] = -sin; values[M42] = 0f;
-            values[M13] = 0f; values[M23] = sin; values[M33] = cos; values[M43] = 0f;
-            values[M14] = 0f; values[M24] = 0f; values[M34] = 0f; values[M44] = 1f;
+            values[M11] = 1f; values[M12] = 0f; values[M13] = 0f; values[M14] = 0f;
+            values[M21] = 0f; values[M22] = cos; values[M23] = -sin; values[M24] = 0f;
+            values[M31] = 0f; values[M32] = sin; values[M33] = cos; values[M34] = 0f;
+            values[M41] = 0f; values[M42] = 0f; values[M43] = 0f; values[M44] = 1f;
             rotation.set(values);
         } else {
             float[] values = new float[LEN];
-            values[M11] = 1f; values[M21] = 0f; values[M31] = 0f; values[M41] = 0f;
-            values[M12] = 0f; values[M22] = cos; values[M32] = sin; values[M42] = 0f;
-            values[M13] = 0f; values[M23] = -sin; values[M33] = cos; values[M43] = 0f;
-            values[M14] = 0f; values[M24] = 0f; values[M34] = 0f; values[M44] = 1f;
+            values[M11] = 1f; values[M12] = 0f; values[M13] = 0f; values[M14] = 0f;
+            values[M21] = 0f; values[M22] = cos; values[M23] = sin; values[M24] = 0f;
+            values[M31] = 0f; values[M32] = -sin; values[M33] = cos; values[M34] = 0f;
+            values[M41] = 0f; values[M42] = 0f; values[M43] = 0f; values[M44] = 1f;
             rotation.set(values);
         }
     }
 
     @Override
     public void setRotationAroundY(double angle, boolean direction) {
-        double angleRad =  (angle * 180 / Math.PI);
+        double angleRad =  Math.toRadians(angle);
         float cos = (float) Math.cos(angleRad);
         float sin = (float) Math.sin(angleRad);
         if (direction){
             float[] values = new float[LEN];
-            values[M11] = cos; values[M21] = 0f; values[M31] = -sin; values[M41] = 0f;
-            values[M12] = 0f; values[M22] = 1f; values[M32] = 0f; values[M42] = 0f;
-            values[M13] = sin; values[M23] = 0f; values[M33] = cos; values[M43] = 0f;
-            values[M14] = 0f; values[M24] = 0f; values[M34] = 0f; values[M44] = 1f;
+            values[M11] = cos; values[M12] = 0f; values[M13] = -sin; values[M14] = 0f;
+            values[M21] = 0f; values[M22] = 1f; values[M23] = 0f; values[M24] = 0f;
+            values[M31] = sin; values[M32] = 0f; values[M33] = cos; values[M34] = 0f;
+            values[M41] = 0f; values[M42] = 0f; values[M43] = 0f; values[M44] = 1f;
             rotation.set(values);
         } else {
             float[] values = new float[LEN];
-            values[M11] = cos; values[M21] = 0f; values[M31] = sin; values[M41] = 0f;
-            values[M12] = 0f; values[M22] = 1f; values[M32] = 0f; values[M42] = 0f;
-            values[M13] = -sin; values[M23] = 0f; values[M33] = cos; values[M43] = 0f;
-            values[M14] = 0f; values[M24] = 0f; values[M34] = 0f; values[M44] = 1f;
+            values[M11] = cos; values[M12] = 0f; values[M13] = sin; values[M14] = 0f;
+            values[M21] = 0f; values[M22] = 1f; values[M23] = 0f; values[M24] = 0f;
+            values[M31] = -sin; values[M32] = 0f; values[M33] = cos; values[M34] = 0f;
+            values[M41] = 0f; values[M42] = 0f; values[M43] = 0f; values[M44] = 1f;
             rotation.set(values);
         }
     }
 
     @Override
     public void setRotationAroundZ(double angle, boolean direction) {
-        double angleRad =  (angle * 180 / Math.PI);
+        double angleRad =  Math.toRadians(angle);
         float cos = (float) Math.cos(angleRad);
         float sin = (float) Math.sin(angleRad);
         if (direction){
             float[] values = new float[LEN];
-            values[M11] = cos; values[M21] = -sin; values[M31] = 0f; values[M41] = 0f;
-            values[M12] = sin; values[M22] = cos; values[M32] = 0f; values[M42] = 0f;
-            values[M13] = 0f; values[M23] = 0f; values[M33] = 0f; values[M43] = 0f;
-            values[M14] = 0f; values[M24] = 0f; values[M34] = 0f; values[M44] = 1f;
+            values[M11] = cos; values[M12] = -sin; values[M13] = 0f; values[M14] = 0f;
+            values[M21] = sin; values[M22] = cos; values[M23] = 0f; values[M24] = 0f;
+            values[M31] = 0f; values[M32] = 0f; values[M33] = 1f; values[M34] = 0f;
+            values[M41] = 0f; values[M42] = 0f; values[M43] = 0f; values[M44] = 1f;
             rotation.set(values);
         } else {
             float[] values = new float[LEN];
-            values[M11] = cos; values[M21] = sin; values[M31] = 0f; values[M41] = 0f;
-            values[M12] = -sin; values[M22] = cos; values[M32] = 0f; values[M42] = 0f;
-            values[M13] = 0f; values[M23] = 0f; values[M33] = 0f; values[M43] = 0f;
-            values[M14] = 0f; values[M24] = 0f; values[M34] = 0f; values[M44] = 1f;
+            values[M11] = cos; values[M12] = sin; values[M13] = 0f; values[M14] = 0f;
+            values[M21] = -sin; values[M22] = cos; values[M23] = 0f; values[M24] = 0f;
+            values[M31] = 0f; values[M32] = 0f; values[M33] = 1f; values[M34] = 0f;
+            values[M41] = 0f; values[M42] = 0f; values[M43] = 0f; values[M44] = 1f;
             rotation.set(values);
         }
     }

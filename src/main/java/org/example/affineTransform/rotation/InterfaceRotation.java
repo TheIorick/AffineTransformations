@@ -6,7 +6,7 @@ public interface InterfaceRotation {
     /**
      *
      * @param angle - угол
-     * @param direction - направление поворота, true - по часовой, false - против
+     * @param direction - направление поворота, true - против часовой, false - по
      *                  Устанавливаем матрицу поворота вокруг одной оси
      */
 
